@@ -1,0 +1,47 @@
+html,body{
+    height: 100%;
+}
+
+body{
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background:#EEEEEE;
+}
+
+
+.navbar-fixed-top{
+    background:rgb(57, 62, 70);
+    font-size: 1.2em;  
+    overflow: hidden;
+    z-index: 1;
+    width: 100%;
+}
+
+.nav{
+    text-align: center;
+    width: 100%;
+}
+
+.nav li{
+    display: inline-block;
+    float: none;
+    padding-left: 1em;
+}
+
+.nav li a{
+    padding-left: 1em;
+    padding-right: 1em;
+    color: white;
+    text-decoration: none
+}
+
+.nav li a:hover{
+    background: rgb(57, 62, 70);
+}
+
+.nav li a:hover:not(.active){
+    background-color: #1d232c;  
+}
+
+.active {
+    border-bottom: 3px solid rgb(15, 203, 212);
+}

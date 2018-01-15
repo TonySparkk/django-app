@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href='/static/diary/index.css'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+<script type="text/javascript" src= '/static/diary/clndr.min.js'></script>
+{% endblock %}
+
+{% block main %}
+
+    <div class="col-sm-4" id="left">
+        <div class="calendar">
+            <div class="cal1"></div>
+        </div>
+    </div>
+    <div class="col-sm-4" id="right">
+        
+    </div>
+
+    <script>
+        $('a').filter(function(index) { return $(this).text() === "Home"; }).addClass('active');
+            
+        var events = [];
+        {% for object in objects %}
+            var event = {};
+            event['title'] =  '{{object.title}}';
+            event['id'] = '{{object.id}}';
+            event['date'] = '{{object.date|date:"Y-m-d"}}';
+            events.push(event);
+        {% endfor %}
+            
+        var calendar = $('.cal1').clndr({
+            events: events,
+            clickEvents: {
+                click: function (target) {
+                    if($(target.element).hasClass('event')){
+                        var total_html = "";
+                        total_html+="<ul>"
+                        for(i=0; i<target.events.length; i++){
+                            var event = target.events[i];
+                            var title = event.title;
+                            total_html += "<li><a href='archive/"+event.id+"'>" + title + "</a></li>"
+                        }
+                        $("#right").html(total_html);
+                    } 
+                    else{
+                        $("#right").html('');
+                    }  
+                },
+                today: function () {
+                    console.log('Cal-1 today');
+                },
+                nextMonth: function () {
+                    console.log('Cal-1 next month');
+                },
+                previousMonth: function () {
+                    console.log('Cal-1 previous month');
+                },
+                onMonthChange: function () {
+                    console.log('Cal-1 month changed');
+                },
+                nextYear: function () {
+                    console.log('Cal-1 next year');
+                },
+                previousYear: function () {
+                    console.log('Cal-1 previous year');
+                },
+                onYearChange: function () {
+                    console.log('Cal-1 year changed');
+                },
+                nextInterval: function () {
+                    console.log('Cal-1 next interval');
+                },
+                previousInterval: function () {
+                    console.log('Cal-1 previous interval');
+                },
+                onIntervalChange: function () {
+                    console.log('Cal-1 interval changed');
+                }
+            },
+            showAdjacentMonths: true,
+            adjacentDaysChangeMonth: false,
+            weekOffset:1,
+            daysOfTheWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        });
+    </script>
+
+{% endblock %}

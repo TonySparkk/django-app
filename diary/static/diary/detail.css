@@ -1,0 +1,60 @@
+.container-fluid, .col-sm-12{
+    padding: 0;
+}
+
+.container-fluid{
+    height: 100%;
+}
+
+#header{
+    border-bottom: 2px solid black;
+    text-align: center;
+    padding-top: 40px;
+    padding-left:5%;
+    padding-right: 5%;
+    min-width: 300px;
+}
+
+.title{
+    padding-top: 10px; 
+    font-size: 2em;
+    color: black;
+    word-wrap: break-word;
+}
+
+.title-date{
+    padding-bottom: 5px;
+}
+
+#content{
+    padding: 0 3% 0 3%;
+    white-space: pre-wrap;
+    font-size: 1em;
+    min-width: 300px;
+}
+
+.fixed-bottom{
+    padding-left: 3%;
+    padding-bottom: 30px;
+}
+
+@media screen and (max-width: 768px){
+    #header, #content, .fixed-bottom{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 296px){
+	#header{
+        padding-top: 80px;
+	}
+}
+
+.fixed-bottom button{
+    color: white;
+    border: none;
+    height: 40px;
+    width: 200px;
+    background: rgb(53, 171, 200);
+}

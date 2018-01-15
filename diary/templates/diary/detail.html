@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Archive{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href='/static/diary/detail.css'>
+{% endblock %}
+
+{% block main %}
+
+    <div class="col-sm-12" id="header">
+        <h2 class="title">{{post.title}}</h2>
+        <div class="title-date"> <p>{{post.date|date:"j M Y"}}</p></div>
+    </div>
+    <div class="col-sm-12" id="content">
+        <p>{{post.content}}</p>
+    </div>
+    <div class="fixed-bottom">
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" name="action" value="Delete">Delete</button>
+        </form>
+    </div>
+{% endblock %}

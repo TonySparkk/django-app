@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <style>
+            html, body{
+                height: 100%;
+                width: 100%;
+                margin: 0;
+            }
+            div{ 
+                margin:0;
+                float: left;
+                margin-left: 35%;
+                padding: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h2>Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+.container-fluid{
+    height: 100%;
+}
+
+.col-sm-6 .title{
+    word-wrap: break-word;
+}
+
+.year{
+    margin-top: 100px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    font-size: 1.2em;
+    width: 100%;
+}
+
+@media screen and (max-width: 328px){
+	.year{
+		margin-top: 150px;
+	}
+}
+
+.month{
+    padding-left: 20px;
+    list-style: none;
+}
+
+.month-data{
+    display: inline;
+}
+
+.posts{
+    padding: 0;
+    list-style: none;
+}
+
+.post{
+    padding-left: 30px;
+}
+
+.empty{
+    text-align: center;
+    padding: 30px;
+    padding-top: 100px;
+    color:black;
+}
+
+.empty h1{
+    font-size: 4em;
+}
