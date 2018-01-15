@@ -10,7 +10,18 @@
 
     <div class="col-sm-12" id="header">
         <h2 class="title">{{post.title}}</h2>
-        <div class="title-date"> <p>{{post.date|date:"j M Y"}}</p></div>
+        <div class="title-date"></div>
+        <script type="text/javascript">
+            var author = "{{post.author}}"
+            if(author=='O'){
+                author = 'Orgest';
+            }
+            else{
+                author = 'Eduina';
+            }
+            var content = '<p>{{post.date|date:"j M Y"}} - '+author+'</p>'
+            $('.title-date').html(content)
+        </script>
     </div>
     <div class="col-sm-12" id="content">
         <p>{{post.content}}</p>
