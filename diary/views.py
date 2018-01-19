@@ -14,12 +14,13 @@ def index(request):
 
 def post(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            form.clean_data()
-            object = Post(author=form.author,title=form.title,content=form.content,date=datetime.datetime.now())
-            object.save()
-            return HttpResponseRedirect('/diary/')
+        if request.POST['action'] == 'Submit':
+            form = PostForm(request.POST)
+            if form.is_valid():
+                form.clean_data()
+                object = Post(author=form.author,title=form.title,content=form.content,date=datetime.datetime.now())
+                object.save()
+                return HttpResponseRedirect('/diary/')
     else:
         form = PostForm()
     return render(request, 'diary/post.html',{'form':form})
