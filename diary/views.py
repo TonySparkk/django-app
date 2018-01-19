@@ -35,7 +35,18 @@ def detail(request, post_id):
         if request.POST['action'] == 'Delete':
             post.delete()
             return HttpResponseRedirect('/diary/')
+        elif request.POST['action'] == 'Edit':
+            return HttpResponseRedirect(request.path+'edit/')
     return render(request, 'diary/detail.html', {'post': post})
+
+def edit(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        if request.POST['action'] == 'Update':
+            post.content = request.POST['text']
+            post.save()
+            return HttpResponseRedirect('/diary/') 
+    return render(request, 'diary/edit.html', {'post':post})
 
 def getposts():
     posts = Post.objects.filter().order_by('-date')

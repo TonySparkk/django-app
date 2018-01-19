@@ -3,7 +3,7 @@
 {% block title %}Archive{% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" href='/static/diary/detail.css'>
+    <link rel="stylesheet" href='/static/diary/edit.css'>
 {% endblock %}
 
 {% block main %}
@@ -23,17 +23,15 @@
             $('.title-date').html(content)
         </script>
     </div>
-    <div class="col-sm-12" id="content">
-        <p>{{post.content}}</p>
+    <div class="col-sm-12">
+        <div class="form-group" id="content">
+            <textarea name="text" form="editform">{{post.content}}</textarea>
+        </div>
     </div>
     <div class="fixed-bottom">
-        <form action="" method="post">
+        <form action="" method="post" id="editform">
             {% csrf_token %}
-            <button type="submit" name="action" value="Delete">Delete</button>
-        </form>
-        <form action="" method="post">
-            {% csrf_token %}
-            <button type="submit" name="action" value="Edit">Edit</button>
+            <button type="submit" name="action" value="Update">Save</button>
         </form>
     </div>
 {% endblock %}
